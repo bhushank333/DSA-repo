@@ -1,6 +1,8 @@
 package com.example.demo.com.assignment16;
 
-public class ProductException extends Exception {
+public class
+
+ProductException extends Exception {
 	
 	/**
 	 * 
