@@ -17,7 +17,8 @@ public class SortMapIntValue {
 	public static HashMap<String, Integer> SortByValue(HashMap<String, Integer> hm){
 		
 		ArrayList<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>(hm.entrySet());
-		
+
+		ArrayList<Map.Entry<String, Integer>> list1 = new ArrayList<>(hm.entrySet());
 	
         // Sort the list using Comparator
 //		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
@@ -34,7 +35,7 @@ public class SortMapIntValue {
 		  // Sort the list using lambda expression
 		//Collections.sort(list,(i1,i2) -> i1.getValue().compareTo(i2.getValue()));
 		
-		Collections.sort(list, (i1,i2)-> i1.getValue().compareTo(i2.getValue()));
+		Collections.sort(list, (i1,i2)-> i1.getKey().compareTo(i2.getKey()));
 		
 		HashMap<String, Integer> hsh = new LinkedHashMap<String , Integer>();
 		for(Map.Entry<String, Integer> it : list) {

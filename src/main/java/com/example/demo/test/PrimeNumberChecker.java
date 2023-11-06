@@ -4,11 +4,28 @@ import java.util.Scanner;
 
 public class PrimeNumberChecker {
 
-    public static void main(String[] args){
-        System.out.println(Math.sqrt(4));
-        int[] a ={10,20,50,20,10};
-//        a.length
+    public static void main(String[] args) {
+        int number = 17;
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime) {
+            System.out.println("The number is prime.");
+        } else {
+            System.out.println("The number is not prime.");
+        }
     }
+}
 
 //    public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
@@ -34,5 +51,5 @@ public class PrimeNumberChecker {
 //        }
 //        return true;
 //    }
-}
+
 
