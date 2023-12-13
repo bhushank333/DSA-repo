@@ -7,6 +7,8 @@ package com.example.demo.com.assignment19;
 //Enter string- pune
 //Output enup
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ReverseString {
@@ -14,11 +16,16 @@ public class ReverseString {
 	public static void getRverseString(String s) {
 
 		String str = "";
+		int small1 = Integer.MAX_VALUE;
 
 		for (int i = s.length()-1; i >= 0; i--) {
 			str += s.charAt(i);
 		}
 		System.out.println(str);
+
+		List<String> List = Arrays.asList("Bhushan", "rahule", "Shubham");
+
+		List.stream().filter(e -> e.charAt(e.length()-1) =='n' ).forEach(e -> System.out.println(e));
 
 	}
 	

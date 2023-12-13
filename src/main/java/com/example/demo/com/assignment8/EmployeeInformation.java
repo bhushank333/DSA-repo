@@ -1,7 +1,13 @@
 package com.example.demo.com.assignment8;
 
-import java.util.Scanner;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.Scanner;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmployeeInformation {
 
 	private String firstName ;

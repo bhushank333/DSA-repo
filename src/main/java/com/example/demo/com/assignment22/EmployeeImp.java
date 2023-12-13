@@ -2,6 +2,8 @@ package com.example.demo.com.assignment22;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class EmployeeImp {
 
@@ -21,6 +23,17 @@ public class EmployeeImp {
 		Collections.sort(al);
 		
 		al.forEach(bk -> System.out.println(bk));
+
+		List<Employee> sortedEmployees = al.stream()
+				.sorted(Comparator.comparing(Employee::getEmpName))
+				.toList();
+
+		List<Employee> sortedEmployees1 = al.stream()
+				.sorted(Comparator.comparing(Employee::getEmpName))
+				.toList();
+
+		// Print sorted employees
+		sortedEmployees.forEach(System.out::println);
 		
 	}
 

@@ -44,9 +44,9 @@ public class RemoveDuplicateInArray {
 		Arrays.sort(a);
 		int n= a.length;
 		
-//		RemoveDuplicateUsingMap(a, n);
+		RemoveDuplicateUsingMap(a, n);
 		
-		removeduplicates(a, n);
+		//removeduplicates(a, n);
 		
 	}
 	
