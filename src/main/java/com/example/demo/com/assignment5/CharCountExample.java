@@ -2,6 +2,8 @@ package com.example.demo.com.assignment5;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class CharCountExample {
 
@@ -22,5 +24,12 @@ public class CharCountExample {
 
         // Print the character count map using forEach
         charCountMap.forEach((k, v) -> System.out.println(k + ": " + v));
+
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+
+
+        String s = "bhushan";
+        Map<Character, Long> collect = s.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        collect.forEach((k,v) -> System.out.println(k +":" +v));
     }
 }

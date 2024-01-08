@@ -10,6 +10,24 @@ import java.util.stream.Stream;
 
 public class StreamApiMethods {
 
+
+//   1) Intermediate Operations (Command-based):
+//
+//    These methods do not produce a final result right away but rather return a new stream that can be used for further processing.
+//    Examples include filter, map, flatMap, distinct, sorted, peek, etc.
+//    These operations are often referred to as command-based because they define the processing commands to be executed on the elements of the stream.
+
+//    Terminal Operations (?):
+//
+//    These methods trigger the processing of the stream and produce a final result or a side-effect.
+//    Once a terminal operation is executed, the stream is considered consumed, and it cannot be reused.
+//    Examples include forEach, collect, reduce, count, anyMatch, allMatch, noneMatch, etc.
+//    These operations are often referred to as terminal operations because they mark the end of the stream processing pipeline.
+
+
+
+
+
     //stream api all collect methods with example
 
     // 1) Collectors.toList()
@@ -133,6 +151,18 @@ public class StreamApiMethods {
             .collect(Collectors.joining(", "));
 
     // Result: "Alice, Bob, Charlie, David"
+
+    //peek  method
+    List<String> words = Arrays.asList("apple", "banana", "cherry", "date");
+
+    // Use peek to print the length of each word in the stream
+    List<String> modifiedList = words.stream()
+            .peek(word -> System.out.println("Length of " + word + ": " + word.length()))
+            .map(String::toUpperCase)
+            .peek(word -> System.out.println("Uppercase: " + word))
+            .filter(word -> word.length() > 5)
+            .collect(Collectors.toList());
+
 
 
 
