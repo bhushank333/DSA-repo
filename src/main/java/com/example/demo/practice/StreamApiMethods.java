@@ -1,9 +1,6 @@
 package com.example.demo.practice;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -164,6 +161,50 @@ public class StreamApiMethods {
             .collect(Collectors.toList());
 
 
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+    //flatmap example
+        public static void main(String[] arg) {
+        List<List<String>> list = new ArrayList<>();
+
+        List<String> list1 = Arrays.asList("bhushan", "rahul", "kumar");
+        List<String> list2 = Arrays.asList("pranav", "ram");
+        list.add(list1);
+        list.add(list2);
+        System.out.println(list);
+        List<String> collect = list.stream().flatMap(e -> e.stream()).collect(Collectors.toList());
+
+        collect.forEach(e-> System.out.println(e));
+
+        //----------------
+
+            List<Integer> numbers = Arrays.asList(10, 5, 8, 20, 15, 25);
+
+            int secondHighest = findSecondHighest(numbers);
+
+            System.out.println("Second Highest Element: " + secondHighest);
+    }
+
+    public static int findSecondHighest(List<Integer> numbers) {
+        return numbers.stream()
+                .distinct() // Remove duplicates
+                .sorted((a, b) -> b.compareTo(a)) // Sort in descending order
+                .skip(1) // Skip the first element (highest)
+                .findFirst() // Get the first element (second-highest)
+                .orElseThrow(() -> new IllegalStateException("List is empty"));
+    }
+
+    public static void mainn(String[] args) {
+        List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8);
+
+        Map<Integer, Integer> resultMap = list.stream()
+                .filter(num -> num % 2 == 0) // Filter even numbers
+                .collect(Collectors.toMap(
+                        num -> num,                // Key mapper (even number)
+                        num -> num * num           // Value mapper (square of the number)
+                ));
+
+        System.out.println(resultMap);
+    }
 
 }
