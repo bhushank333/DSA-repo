@@ -2,6 +2,7 @@ package com.example.demo.testdsa;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class computeUnionArrays {
@@ -15,6 +16,15 @@ public class computeUnionArrays {
     }
 
     static int[] computeUnion(int[] arr1, int[] arr2) {
+        Set<Integer> unionSet = new LinkedHashSet<>(); // Maintains insertion order
+
+        for (int num : arr1) unionSet.add(num);
+        for (int num : arr2) unionSet.add(num);
+
+        return unionSet.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    static int[] computeUnionTest(int[] arr1, int[] arr2) {
         Set<Integer> unionSet = new HashSet<>();
 
         for (int num : arr1) {

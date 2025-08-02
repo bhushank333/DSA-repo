@@ -31,5 +31,8 @@ public class CharCountExample {
         String s = "bhushan";
         Map<Character, Long> collect = s.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         collect.forEach((k,v) -> System.out.println(k +":" +v));
+        s.chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .forEach((k, v) -> System.out.println(k + ":" +v));
     }
 }

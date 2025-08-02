@@ -1,6 +1,14 @@
 package com.example.demo.testdsa;
 
+import java.util.Arrays;
+
 public class SingleNumber {
+
+    public static int singleNumberUsingStream(int[] nums) {
+        return Arrays.stream(nums)
+                .reduce(0, (a, b) -> a ^ b);  // XOR accumulation
+    }
+
     public static int singleNumber(int[] nums) {
         int result = 0;
         for (int num : nums) {
@@ -12,5 +20,6 @@ public class SingleNumber {
         int[] nums = {2, 2, 1, 4, 4, 1, 5};
         int result = singleNumber(nums);
         System.out.println("The single number is: " + result);
+        System.out.println("The single number is singleNumberUsingStream: " + singleNumberUsingStream(nums));
     }
 }

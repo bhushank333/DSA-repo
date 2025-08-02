@@ -1,8 +1,28 @@
 package com.example.demo.testdsa;
+
 import java.util.*;
 
 
 public class computeIntersectionArrays {
+
+    public static int[] getCommonElements(int[] arr1, int[] arr2) {
+        Set<Integer> set = new HashSet<>();
+        Set<Integer> resultSet = new HashSet<>();
+
+        for (int num : arr1) {
+            set.add(num);
+        }
+
+        for (int num : arr2) {
+            if (set.contains(num)) {
+                resultSet.add(num);
+            }
+        }
+
+        // Convert Set<Integer> to int[]
+        int[] result = resultSet.stream().mapToInt(Integer::intValue).toArray();
+        return result;
+    }
 
     public static int[] computeIntersectionUsingHashSet(int[] arr1, int[] arr2) {
         Set<Integer> set = new HashSet<>();
@@ -52,6 +72,18 @@ public class computeIntersectionArrays {
         }
 
         return intersectionArray;
+    }
+
+    public void utilityMethod() {
+        List<String> list = List.of("apple", "banana", "orange");
+        String[] array = list.toArray(new String[0]);
+
+        List<Integer> list1 = List.of(1, 2, 3);
+        Integer[] array1 = list1.toArray(new Integer[0]);
+
+        List<Integer> list2 = List.of(1, 2, 3);
+        int[] array2 = list2.stream().mapToInt(Integer::intValue).toArray();
+
     }
 
     public static void main(String[] args) {

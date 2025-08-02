@@ -12,8 +12,13 @@ public class Singleton {
     public static Singleton getInstance() {
         // Lazy initialization: create the instance only if it's not already created
         if (instance == null) {
-            instance = new Singleton();
+            synchronized (Singleton.class) {  // Locking only when instance is null
+                if (instance == null) {      // Double-checked locking
+                    instance = new Singleton();
+                }
+            }
         }
+
         return instance;
     }
 

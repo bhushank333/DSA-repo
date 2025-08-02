@@ -5,9 +5,9 @@ public class MainProduct {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Product p = new Product();
+		Product product = new Product();
 
-		p.productCheck(70);
+		product.productCheck(70);
 
 	}
 

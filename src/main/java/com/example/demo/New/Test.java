@@ -2,6 +2,7 @@ package com.example.demo.New;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Test {
@@ -13,6 +14,8 @@ public class Test {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+//        Supplier<Employee> employeeSupplier = new Employee("Alice", "HR");
 
         List<Employee> employees = Arrays.asList(
                 new Employee("Alice", "HR"),

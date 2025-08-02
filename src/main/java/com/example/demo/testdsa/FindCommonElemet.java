@@ -1,8 +1,34 @@
 package com.example.demo.testdsa;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FindCommonElemet {
+
+    public static String[] getCommonElements(String[] arr1, String[] arr2) {
+        // Step 1: Convert arr1 to Set<String> for efficient lookup
+        Set<String> set1 = Arrays.stream(arr1)
+                .collect(Collectors.toSet());
+
+        // Step 2: Filter arr2 to retain only elements present in set1
+        return Arrays.stream(arr2)
+                .filter(set1::contains)
+                .distinct() // Remove duplicates from arr2
+                .toArray(String[]::new); // Convert to String[]
+    }
+
+    public static int[] getCommonElements(int[] arr1, int[] arr2) {
+        // Step 1: Convert arr1 to Set for efficient lookup
+        Set<Integer> set1 = Arrays.stream(arr1)
+                .boxed()
+                .collect(Collectors.toSet());
+
+        // Step 2: Filter arr2 to retain only elements present in set1
+        return Arrays.stream(arr2)
+                .filter(set1::contains)         // keep if in set1
+                .distinct()                     // remove duplicates
+                .toArray();                     // convert to int[]
+    }
 
     private static void GetCommonElemet(int[] ar1, int[] ar2)
     {

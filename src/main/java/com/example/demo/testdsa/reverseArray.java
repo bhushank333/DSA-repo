@@ -1,6 +1,15 @@
 package com.example.demo.testdsa;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 public class reverseArray {
+
+    public static int[] getReversedArray(int[] arr) {
+        return IntStream.rangeClosed(1, arr.length)
+                .map(i -> arr[arr.length - i])  // Reverse index mapping
+                .toArray();
+    }
 
     public static void getReverseArray(int[] arr){
         int start = 0;
@@ -21,7 +30,10 @@ public class reverseArray {
 
     public static void main(String[] args){
         int[] arr = {1, 2, 3, 4, 5};
-        getReverseArray(arr);
+//        getReverseArray(arr);
+        int[] reversed = getReversedArray(arr);
+
+        Arrays.stream(reversed).forEach(System.out::println);
 
     }
 }
