@@ -79,7 +79,20 @@ public class StreamApi {
 
         System.out.println(modifiedNames);  // o/p ----> Processing: John Processing: Jane Processing: Doe [JOHN, JANE, DOE]
 
-    //---------------------------------------------------------------------------------------------------//
+//        public static void main(String[] args) {
+            List<String> fNames = Arrays.asList("Alice", "Bob", "Charlie");
+
+            List<String> result = fNames.stream()
+                    .peek(name -> System.out.println("Original: " + name))
+                    .map(String::toUpperCase)
+                    .peek(name -> System.out.println("Uppercased: " + name))
+                    .collect(Collectors.toList());
+
+            System.out.println("Final List: " + result);
+//        }
+
+
+        //---------------------------------------------------------------------------------------------------//
 
         //    Terminal Operations (?):
 //

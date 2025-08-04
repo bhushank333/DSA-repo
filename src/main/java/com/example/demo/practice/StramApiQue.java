@@ -84,6 +84,56 @@ public class StramApiQue {
                         (e1, e2) -> e1, LinkedHashMap::new));
         System.out.println("Sorted Map by Value: " + sortedMap); // Expected: {B=5, A=3, C=2}
 
+        //Sort Map by Value Ascending
+//        Map<String, Integer> map = Map.of("A", 3, "B", 5, "C", 2);
+        LinkedHashMap<String, Integer> valueAsc = map.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())  // ascending order
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
+
+        System.out.println("Sort by Value Ascending: " + valueAsc);
+        // Output: {C=2, A=3, B=5}
+
+        //Sort Map by Value Descending
+        LinkedHashMap<String, Integer> valueDesc = map.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())  // descending
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
+
+        System.out.println("Sort by Value Descending: " + valueDesc);
+        // Output: {B=5, A=3, C=2}
+
+        // Sort Map by Key Ascending
+        LinkedHashMap<String, Integer> keyAsc = map.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())  // ascending order
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
+
+        System.out.println("Sort by Key Ascending: " + keyAsc);
+        // Output: {A=3, B=5, C=2}
+
+        //Sort Map by Key Descending
+        LinkedHashMap<String, Integer> keyDesc = map.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByKey().reversed())  // descending
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
+
+        System.out.println("Sort by Key Descending: " + keyDesc);
+        // Output: {C=2, B=5, A=3}
+
+
         // 8. Longest string
         List<String> vehicles = List.of("car", "airplane", "bus");
         String longest = vehicles.stream()
