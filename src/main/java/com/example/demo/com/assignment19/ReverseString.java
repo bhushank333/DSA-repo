@@ -13,37 +13,40 @@ import java.util.Scanner;
 
 public class ReverseString {
 
-	public static void getRverseString(String s) {
+    public static void getRverseString(String s) {
 
-		String str = "";
-		int small1 = Integer.MAX_VALUE;
+        StringBuilder str = new StringBuilder();
+//		String str = "";
+        int small1 = Integer.MAX_VALUE;
 
-		for (int i = s.length()-1; i >= 0; i--) {
-			str += s.charAt(i);
-		}
-		System.out.println(str);
+        for (int i = s.length() - 1; i >= 0; i--) {
+            str.append(s.charAt(i));
+//			str += s.charAt(i);
+        }
+        System.out.println(str);
 
-		List<String> List = Arrays.asList("Bhushan", "rahule", "Shubham");
+        List<String> List = Arrays.asList("Bhushan", "rahule", "Shubham");
 
-		List.stream().filter(e -> e.charAt(e.length()-1) =='n' ).forEach(e -> System.out.println(e));
+        List.stream().filter(e -> e.charAt(e.length() - 1) == 'm').forEach(System.out::println);
 
-	}
-	
-	public static void getRverse(String s) {
-		
-		StringBuffer sb = new StringBuffer(s);
-		sb.reverse();
-		String st = new String(sb);
-		System.out.println(st);
-		
-	}
+    }
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter String");
-		String a=sc.nextLine();
-		//getRverseString(a);
-		getRverse(a);
-	}
+    public static void getRverse(String s) {
+
+        StringBuffer sb = new StringBuffer(s);
+        sb.reverse();
+        String st = new String(sb);
+        System.out.println(st);
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String");
+        String a = sc.nextLine();
+//        getRverseString(a);
+        getRverse(a);
+        getRverseString(a);
+    }
 
 }
